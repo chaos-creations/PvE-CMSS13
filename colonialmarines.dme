@@ -68,7 +68,6 @@
 #include "code\__DEFINES\hud.dm"
 #include "code\__DEFINES\human.dm"
 #include "code\__DEFINES\human_ai.dm"
-#include "code\__DEFINES\job.dm"
 #include "code\__DEFINES\job_ru.dm"
 #include "code\__DEFINES\keybinding.dm"
 #include "code\__DEFINES\language.dm"
