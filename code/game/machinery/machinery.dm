@@ -321,6 +321,14 @@ Class Procs:
 /obj/structure/machinery/proc/get_repair_move_text(include_name = TRUE)
 	return
 
+/obj/structure/machinery/proc/set_is_on(is_on)
+	src.is_on = is_on
+	update_icon()
+
+/obj/structure/machinery/proc/toggle_is_on()
+	set_is_on(!is_on)
+	return is_on
+
 // UI related procs \\
 
 /obj/structure/machinery/ui_state(mob/user)
@@ -369,7 +377,7 @@ Class Procs:
 	unslashable = TRUE
 	unacidable = TRUE
 	wrenchable = FALSE
-	
+
 /obj/structure/machinery/fuelpump/ex_act(severity)
 	return
 

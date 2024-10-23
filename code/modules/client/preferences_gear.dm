@@ -699,6 +699,26 @@ GLOBAL_LIST_EMPTY(gear_datums_by_name)
 	display_name = "Rock plush"
 	path = /obj/item/toy/plush/rock
 
+/datum/gear/plush/otter
+	display_name = "Otter plush"
+	path = /obj/item/toy/plush/otter
+
+/datum/gear/plush/fox
+	display_name = "Fox plush"
+	path = /obj/item/toy/plush/fox
+
+/datum/gear/plush/kitten
+	display_name = "Kitten plush"
+	path = /obj/item/toy/plush/kitten
+
+/datum/gear/plush/box
+	display_name = "Box plush"
+	path = /obj/item/toy/plush/box
+
+/datum/gear/plush/carp
+	display_name = "Carp plush"
+	path = /obj/item/toy/plush/carp
+
 /datum/gear/plush/therapy
 	display_name = "Therapy plush"
 	path = /obj/item/toy/plush/therapy
@@ -783,7 +803,7 @@ GLOBAL_LIST_EMPTY(gear_datums_by_name)
 
 /datum/gear/weapon/hg44
 	display_name = "HG 44 'Automag' Pistol"
-	path = /obj/item/storage/box/loadout/HG45_marine_loadout
+	path = /obj/item/storage/box/loadout/HG44_loadout
 	allowed_origins = USCM_ORIGINS
 
 /datum/gear/weapon/spearhead
@@ -1024,6 +1044,7 @@ GLOBAL_LIST_EMPTY(gear_datums_by_name)
 /datum/gear/smoking/pack_lucky_strikes
 	display_name = "Pack Of Lucky Strikes"
 	path = /obj/item/storage/fancy/cigarettes/lucky_strikes
+	cost = 0
 
 /datum/gear/smoking/pack_emeraldgreen
 	display_name = "Pack Of Emerald Greens"
@@ -1053,6 +1074,16 @@ GLOBAL_LIST_EMPTY(gear_datums_by_name)
 /datum/gear/smoking/pack_exec
 	display_name = "Pack Of Executive Selects"
 	path = /obj/item/storage/fancy/cigarettes/blackpack
+	cost = 4
+
+/datum/gear/smoking/spirit
+	display_name = "Pack Of American Spirit, Turquoise"
+	path = /obj/item/storage/fancy/cigarettes/spirit
+	cost = 4
+
+/datum/gear/smoking/spirit_yellow
+	display_name = "Pack Of American Spirit, Yellow"
+	path = /obj/item/storage/fancy/cigarettes/spirit/yellow
 	cost = 4
 
 /datum/gear/smoking/weed_joint
@@ -1183,6 +1214,30 @@ GLOBAL_LIST_EMPTY(gear_datums_by_name)
 	display_name = "M67 flak jacket"
 	path = /obj/item/clothing/accessory/flak
 	cost = 3
+
+/datum/gear/misc/green_poncho
+	display_name = "Green Poncho"
+	path = /obj/item/clothing/accessory/poncho/green
+	cost = 3
+
+/datum/gear/misc/brown_poncho
+	display_name = "Brown Poncho"
+	path = /obj/item/clothing/accessory/poncho/brown
+	cost = 3
+
+/datum/gear/misc/black_poncho
+	display_name = "Black Poncho"
+	path = /obj/item/clothing/accessory/poncho/black
+	cost = 3
+
+/datum/gear/misc/blue_poncho
+	display_name = "Blue Poncho"
+	path = /obj/item/clothing/accessory/poncho/blue
+	cost = 3
+
+/datum/gear/misc/purple_poncho
+	display_name = "Purple Poncho"
+	path = /obj/item/clothing/accessory/poncho/purple
 
 /datum/gear/misc/servicejacket
 	display_name = "Marine Service Jacket"

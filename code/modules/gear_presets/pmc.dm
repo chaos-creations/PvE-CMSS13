@@ -22,6 +22,7 @@
 	var/last_name
 	var/datum/preferences/A = new()
 	A.randomize_appearance(new_human)
+
 	if(new_human.gender == MALE)
 		if(prob(10))
 			first_name = "[capitalize(randomly_generate_japanese_word(rand(2, 3)))]"
@@ -38,6 +39,7 @@
 	else
 		last_name = "[pick(GLOB.last_names_pmc)]"
 	random_name = "[first_name] [last_name]"
+
 	new_human.change_real_name(new_human, random_name)
 	new_human.age = rand(25,35)
 	new_human.h_style = "Shaved Head"

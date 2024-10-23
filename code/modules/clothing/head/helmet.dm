@@ -215,6 +215,8 @@ GLOBAL_LIST_INIT(allowed_helmet_items, list(
 	/obj/item/storage/fancy/cigarettes/lady_finger = "helmet_cig_lf",
 	/obj/item/storage/fancy/cigarettes/blackpack = "helmet_cig_blackpack",
 	/obj/item/storage/fancy/cigarettes/arcturian_ace = "helmet_cig_aapack",
+	/obj/item/storage/fancy/cigarettes/spirit = "helmet_cig_naspack",
+	/obj/item/storage/fancy/cigarettes/spirit/yellow = "helmet_cig_y_naspack",
 	/obj/item/storage/fancy/cigarettes/lucky_strikes_4 = "hat_cig_ls_mre",
 	/obj/item/storage/fancy/cigar/matchbook = "helmet_matches_mre",
 	/obj/item/clothing/mask/cigarette/cigar = "helmet_cig_cig",
@@ -261,6 +263,9 @@ GLOBAL_LIST_INIT(allowed_helmet_items, list(
 	/obj/item/clothing/glasses/sunglasses/sechud = "sechud",
 	/obj/item/clothing/glasses/eyepatch = "eyepatch",
 	/obj/item/clothing/glasses/regular/hipster = "persc-glasses",
+
+	//GASMASK
+	/obj/item/clothing/mask/gas/m5 = HELMET_GARB_RELAY_ICON_STATE,
 
 	// WALKMAN AND CASSETTES
 	/obj/item/device/walkman = HELMET_GARB_RELAY_ICON_STATE,
@@ -406,7 +411,7 @@ GLOBAL_LIST_INIT(allowed_helmet_items, list(
 	var/helmet_overlay_icon = 'icons/mob/humans/onmob/head_1.dmi'
 
 	///Any visors built into the helmet
-	var/list/built_in_visors = list(new /obj/item/device/helmet_visor)
+	var/list/built_in_visors = list(new /obj/item/device/helmet_visor, new /obj/item/device/helmet_visor/night_vision)
 
 	///Any visors that have been added into the helmet
 	var/list/inserted_visors = list()
@@ -508,6 +513,20 @@ GLOBAL_LIST_INIT(allowed_helmet_items, list(
 		helmet_bash_cooldown = world.time + 20 SECONDS
 		return
 
+//RU-PVE ADDITION STARTS
+	if(istype(attacking_item, /obj/item/cell))
+		var/obj/item/cell/power_source = attacking_item
+		if(power_source.charge <= 0)
+			to_chat(user, SPAN_DANGER("[power_source] is empty! You can't charge [src] visor with it!"))
+			return
+		for(var/obj/item/device/helmet_visor/night_vision/nvg in (built_in_visors + inserted_visors))
+			if(do_after(user, 10 SECONDS, INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
+				nvg.power_cell.charge += power_source.charge
+				power_source.charge = 0
+				if(nvg.power_cell.charge > nvg.power_cell.maxcharge)
+					nvg.power_cell.charge = nvg.power_cell.maxcharge
+					to_chat(user, SPAN_NOTICE("You quickly attached [power_source] to [src], reloading it's [nvg] power."))
+//RU-PVE ADDITION ENDS
 	if(istype(attacking_item, /obj/item/device/helmet_visor))
 		if(length(inserted_visors) >= max_inserted_visors)
 			to_chat(user, SPAN_NOTICE("[src] has used all of its visor attachment sockets."))
@@ -815,7 +834,7 @@ GLOBAL_LIST_INIT(allowed_helmet_items, list(
 	desc = "M10 combat helmet issued to marine hospital corpsmen. Has a red cross painted on its front for attracting the injured and snipers' attentions alike."
 	icon_state = "med_helmet"
 	specialty = "M10 pattern medic"
-	built_in_visors = list(new /obj/item/device/helmet_visor, new /obj/item/device/helmet_visor/medical/advanced)
+	built_in_visors = list(new /obj/item/device/helmet_visor, new /obj/item/device/helmet_visor/medical/advanced, new /obj/item/device/helmet_visor/night_vision)
 	start_down_visor_type = /obj/item/device/helmet_visor/medical/advanced
 
 /obj/item/clothing/head/helmet/marine/medic/white

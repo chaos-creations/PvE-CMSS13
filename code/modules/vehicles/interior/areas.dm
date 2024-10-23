@@ -26,8 +26,12 @@
 	icon_state = "apc_cmd"
 
 /area/interior/vehicle/apc/movie
-	name = "\improper M557A3 APC interior"
+	name = "\improper M577A3 APC interior"
 	icon_state = "apc_movie"
+
+/area/interior/vehicle/apc/movie/aa
+	name = "\improper M579 ADS-C interior"
+	icon_state = "apc_aa"
 
 /area/interior/vehicle/van
 	name = "van interior"
@@ -36,3 +40,15 @@
 /area/interior/vehicle/arc
 	name = "\improper M540 ARC interior"
 	icon_state = "arc"
+
+/area/vehicle/van
+	name = "van interior"
+	icon_state = "van"
+
+/area/interior/vehicle/box_van
+	name = "box-van interior"
+	icon_state = "van"
+
+/area/interior/vehicle/pizza_van
+	name = "pizza-van interior"
+	icon_state = "van"
